@@ -46,6 +46,7 @@
     }
 
     .link-web li {
+        width: 40px;
         display: inline-block;
         color: white;
         padding: 10px;
