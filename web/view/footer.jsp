@@ -48,10 +48,19 @@
     .link-web li {
         display: inline-block;
         color: white;
-        padding: 25px;
-        font-size: 30px;
+        padding: 10px;
+        font-size: 20px;
+        text-align: center;
+        margin-left: 25px;
+        margin-top: 10px;
+        border: 1px solid #fff;
+        border-radius: 50%;
     }
-
+    .link-web li:hover{
+        background-color: red;
+            color: white;
+            border: 1px solid white;
+    }
     .link-web a {
         color: aliceblue;
     }
