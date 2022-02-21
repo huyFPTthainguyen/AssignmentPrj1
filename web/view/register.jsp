@@ -13,8 +13,8 @@
         <style>
             body {
                 font-family: Arial, Helvetica, sans-serif;
-                background-color: white;
-                color: rgba(255, 0, 0, 0.616);
+                background-color: rgba(255, 0, 0, 0.123);
+                color: rgba(255, 0, 0, 0.822);
             }
 
             .form-register{
@@ -32,8 +32,8 @@
             }
 
             .container {
-                padding: 16px;
-                background-color: white;
+                padding: 40px;
+                background-color: rgba(255, 0, 0, 0.123);
             }
 
             input[type=text],

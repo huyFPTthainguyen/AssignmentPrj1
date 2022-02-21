@@ -15,6 +15,7 @@
         body {
             font-family: Arial, Helvetica, sans-serif;
             color: rgba(255, 0, 0, 0.637);
+            background-color: rgba(255, 0, 0, 0.123);
         }
 
         .form-login {
