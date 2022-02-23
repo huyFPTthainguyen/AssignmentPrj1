@@ -157,6 +157,7 @@
 </head>
 
 <body>
+    <jsp:include page="header.jsp"></jsp:include>
     <div class="home">
         <h1>News</h1>
         <div class="container">
@@ -257,6 +258,7 @@
             </div>
         </div>
     </div>
+    <jsp:include page="footer.jsp"></jsp:include>
 </body>
 
 </html>

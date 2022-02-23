@@ -47,8 +47,8 @@
 
         .top-header .logo-team img {
             margin: 5px 10px;
-            width: 40%;
-            height: 40%;
+            width: 30%;
+            height: 30%;
             margin-top: 8%;
 
         }
@@ -59,9 +59,9 @@
         }
 
         .top-header .list-icons ul {
-            margin: 30px;
+            margin: 5px;
+            margin-top: 35px;
         }
-
         .top-header .icons-social-media li {
             margin: 10px 10px;
         }
@@ -191,7 +191,7 @@
         <div class="container">
             <div class="top-header">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <div class="logo">
                             <ul class="logo-team">
                                 <li><a href=""><img
@@ -200,16 +200,14 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-8">
                         <div class="list-icons">
-                            <ul class="icons-social-media">
                                 <ul class="icons-social-media">
                                     <li><a href="" class="facebook"><i class="fa fa-facebook"></i></a></li>
                                     <li><a href="" class="twitter"><i class="fa fa-twitter"></i></a></li>
                                     <li><a href="" class="instagram"><i class="fa fa-instagram"></i></a></li>
                                     <li><a href="" class="youtube"><i class="fa fa-youtube"></i></a></li>
                                 </ul>
-                            </ul>
                             <ul class="icons-login">
                                 <li><a href="" class="user"><i class="fa fa-user">&nbspLogin</i></a></li>
                                 <li><a href="" class="register"><i class="fa fa-registered">&nbspRegister</i></a></li>
