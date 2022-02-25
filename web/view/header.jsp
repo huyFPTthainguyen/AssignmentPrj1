@@ -209,8 +209,8 @@
                                     <li><a href="" class="youtube"><i class="fa fa-youtube"></i></a></li>
                                 </ul>
                             <ul class="icons-login">
-                                <li><a href="" class="user"><i class="fa fa-user">&nbspLogin</i></a></li>
-                                <li><a href="" class="register"><i class="fa fa-registered">&nbspRegister</i></a></li>
+                                <li><a href="login.jsp" class="user"><i class="fa fa-user">&nbspLogin</i></a></li>
+                                <li><a href="register.jsp" class="register"><i class="fa fa-registered">&nbspRegister</i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -221,11 +221,11 @@
                     <div class="col-md-7">
                         <div class="menu">
                             <ul class="list-menu">
-                                <li><a href="">Home</a></li>
+                                <li><a href="home.jsp">Home</a></li>
                                 <li><a href="">News</a></li>
                                 <li><a href="">Matches</a></li>
                                 <li><a href="">Teams</a></li>
-                                <li><a href="">About</a></li>
+                                <li><a href="about.jsp">About</a></li>
                             </ul>
                         </div>
                     </div>
