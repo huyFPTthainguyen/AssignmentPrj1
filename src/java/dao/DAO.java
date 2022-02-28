@@ -7,6 +7,7 @@ package dao;
 
 import dal.DBcontext;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -29,34 +30,19 @@ import model.TypeNews;
  * @author Admin
  */
 public class DAO {
+
     Connection conn = null;
     PreparedStatement ps = null;
     ResultSet rs = null;
-    public static void main(String[] args) {
-        DAO dao = new DAO();
-        System.out.println(dao.getTypeNews());
-    }
-    public List<Player> getPlayers(){
-        List<Player> list = new ArrayList<>();
-        String query = "select * from Player";
-        try {
-            conn = new DBcontext().getConnection();
-            ps = conn.prepareStatement(query);
-            rs = ps.executeQuery();
-            while (rs.next()) {
-                Player p = new Player(rs.getInt(1), rs.getString(2), rs.getString(3),
-                        rs.getDate(4), rs.getString(5), rs.getInt(6), rs.getInt(7),
-                        rs.getInt(8), rs.getInt(9), rs.getString(10), rs.getInt(11),
-                        rs.getString(12), rs.getString(13));
-                list.add(p);
-            }
-        } catch (Exception e) {
-            
-        }
-        
-        return list;
-    }
-    public List<Account> getAccount(){
+
+//    public static void main(String[] args) {
+//        DAO dao = new DAO();
+//        System.out.println(dao.getAllNationality());
+//    }
+
+    
+
+    public List<Account> getAccount() {
         List<Account> list = new ArrayList<>();
         String query = "select * from Account";
         try {
@@ -64,16 +50,17 @@ public class DAO {
             ps = conn.prepareStatement(query);
             rs = ps.executeQuery();
             while (rs.next()) {
-                Account a = new Account(rs.getInt(1), rs.getString(2), rs.getInt(3) , rs.getBoolean(4) );
+                Account a = new Account(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getBoolean(4));
                 list.add(a);
             }
         } catch (Exception e) {
-            
+
         }
-        
+
         return list;
     }
-    public List<Coach> getCoach(){
+
+    public List<Coach> getCoach() {
         List<Coach> list = new ArrayList<>();
         String query = "select * from Coach";
         try {
@@ -81,16 +68,17 @@ public class DAO {
             ps = conn.prepareStatement(query);
             rs = ps.executeQuery();
             while (rs.next()) {
-                Coach c = new Coach(rs.getInt(1),rs.getString(2) ,rs.getString(3) , rs.getInt(4) ,rs.getInt(5) , rs.getString(6), rs.getString(7));
+                Coach c = new Coach(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getInt(5), rs.getString(6), rs.getString(7));
                 list.add(c);
             }
         } catch (Exception e) {
-            
+
         }
-        
+
         return list;
     }
-    public List<CoachRole> getCoachRole(){
+
+    public List<CoachRole> getCoachRole() {
         List<CoachRole> list = new ArrayList<>();
         String query = "select * from CoachRole";
         try {
@@ -102,12 +90,13 @@ public class DAO {
                 list.add(c);
             }
         } catch (Exception e) {
-            
+
         }
-        
+
         return list;
     }
-    public List<Match> getMatch(){
+
+    public List<Match> getMatch() {
         List<Match> list = new ArrayList<>();
         String query = "select * from Match";
         try {
@@ -115,16 +104,17 @@ public class DAO {
             ps = conn.prepareStatement(query);
             rs = ps.executeQuery();
             while (rs.next()) {
-                Match m = new Match(rs.getInt(1), rs.getDate(2), rs.getString(3), rs.getInt(4),rs.getInt(5), rs.getInt(6));
+                Match m = new Match(rs.getInt(1), rs.getDate(2), rs.getString(3), rs.getInt(4), rs.getInt(5), rs.getInt(6));
                 list.add(m);
             }
         } catch (Exception e) {
-            
+
         }
-        
+
         return list;
     }
-    public List<MyOpponent> getMyOpponent(){
+
+    public List<MyOpponent> getMyOpponent() {
         List<MyOpponent> list = new ArrayList<>();
         String query = "select * from MyOpponent";
         try {
@@ -136,12 +126,13 @@ public class DAO {
                 list.add(t);
             }
         } catch (Exception e) {
-            
+
         }
-        
+
         return list;
     }
-    public List<MyTeam> getMyTeam(){
+
+    public List<MyTeam> getMyTeam() {
         List<MyTeam> list = new ArrayList<>();
         String query = "select * from MyTeam";
         try {
@@ -153,29 +144,33 @@ public class DAO {
                 list.add(m);
             }
         } catch (Exception e) {
-            
+
         }
-        
+
         return list;
     }
-    public List<Nationality> getNationality(){
-        List<Nationality> list = new ArrayList<>();
+
+    public ArrayList<Nationality> getAllNationality() {
+        ArrayList<Nationality> listNationality = new ArrayList<>();
         String query = "select * from Nationality";
         try {
             conn = new DBcontext().getConnection();
             ps = conn.prepareStatement(query);
             rs = ps.executeQuery();
             while (rs.next()) {
-                Nationality y = new Nationality(rs.getInt(1), rs.getString(2), rs.getString(3));
-                list.add(y);
+                int nationalityId = rs.getInt(1);
+                String nationalityName = rs.getString(2);
+                String img = rs.getString(3);
+                Nationality n = new Nationality(nationalityId, nationalityName, img);
+                listNationality.add(n);
             }
         } catch (Exception e) {
             
         }
-        
-        return list;
+        return listNationality;
     }
-    public List<News> getNews(){
+
+    public List<News> getNews() {
         List<News> list = new ArrayList<>();
         String query = "select * from News";
         try {
@@ -187,12 +182,13 @@ public class DAO {
                 list.add(w);
             }
         } catch (Exception e) {
-            
+
         }
-        
+
         return list;
     }
-    public List<PlayerRole> getPlayerRole(){
+
+    public List<PlayerRole> getPlayerRole() {
         List<PlayerRole> list = new ArrayList<>();
         String query = "select * from PlayerRole";
         try {
@@ -204,12 +200,13 @@ public class DAO {
                 list.add(e);
             }
         } catch (Exception e) {
-            
+
         }
-        
+
         return list;
     }
-    public List<Tournament> getTournament(){
+
+    public List<Tournament> getTournament() {
         List<Tournament> list = new ArrayList<>();
         String query = "select * from Tournament";
         try {
@@ -221,12 +218,13 @@ public class DAO {
                 list.add(t);
             }
         } catch (Exception e) {
-            
+
         }
-        
+
         return list;
     }
-    public List<TypeNews> getTypeNews(){
+
+    public List<TypeNews> getTypeNews() {
         List<TypeNews> list = new ArrayList<>();
         String query = "select * from TypeNews";
         try {
@@ -238,10 +236,157 @@ public class DAO {
                 list.add(s);
             }
         } catch (Exception e) {
-            
+
         }
-        
+
         return list;
     }
-    
+    public ArrayList<Player> getAllPlayer() {
+        ArrayList<Player> listPlayer = new ArrayList<>();
+        String query = "select * from Player";
+        try {
+            conn = new DBcontext().getConnection();
+            ps = conn.prepareStatement(query);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                int playerId = rs.getInt(1);
+                String playerName = rs.getString(2);
+                String img = rs.getString(3);
+                Date dob = rs.getDate(4);
+                String birthPlace = rs.getString(5);
+                int nationalityId = rs.getInt(6);
+                float height = rs.getFloat(7);
+                float weight = rs.getFloat(8);
+                int roleId = rs.getInt(9);
+                String imgBackground = rs.getString(10);
+                int number = rs.getInt(11);
+                String shortDescription = rs.getString(12);
+                String playerInfor = rs.getString(13);
+                int managerId = rs.getInt(14);
+                Player r = new Player(playerId, playerName, img, dob, birthPlace, nationalityId, number, number, roleId, imgBackground, number, shortDescription, playerInfor);
+                listPlayer.add(r);
+            }
+        } catch (Exception e) {
+        }
+        return listPlayer;
+    }
+    public ArrayList<Player> getAllGoalkeepers() {
+        ArrayList<Player> listPlayer = new ArrayList<>();
+        String query = "select * from Player where roleId = 1";
+        try {
+            conn = new DBcontext().getConnection();
+            ps = conn.prepareStatement(query);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                int playerId = rs.getInt(1);
+                String playerName = rs.getString(2);
+                String img = rs.getString(3);
+                Date dob = rs.getDate(4);
+                String birthPlace = rs.getString(5);
+                int nationalityId = rs.getInt(6);
+                float height = rs.getFloat(7);
+                float weight = rs.getFloat(8);
+                int roleId = rs.getInt(9);
+                String imgBackground = rs.getString(10);
+                int number = rs.getInt(11);
+                String shortDescription = rs.getString(12);
+                String playerInfor = rs.getString(13);
+                int managerId = rs.getInt(14);
+                Player r = new Player(playerId, playerName, img, dob, birthPlace, nationalityId, number, number, roleId, imgBackground, number, shortDescription, playerInfor);
+                listPlayer.add(r);
+            }
+        } catch (Exception e) {
+        }
+        return listPlayer;
+    }
+
+    public ArrayList<Player> getAllDefenders() {
+        ArrayList<Player> listPlayer = new ArrayList<>();
+        String query = "select * from Player where roleId = 2";
+        try {
+            conn = new DBcontext().getConnection();
+            ps = conn.prepareStatement(query);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                int playerId = rs.getInt(1);
+                String playerName = rs.getString(2);
+                String img = rs.getString(3);
+                Date dob = rs.getDate(4);
+                String birthPlace = rs.getString(5);
+                int nationalityId = rs.getInt(6);
+                float height = rs.getFloat(7);
+                float weight = rs.getFloat(8);
+                int roleId = rs.getInt(9);
+                String imgBackground = rs.getString(10);
+                int number = rs.getInt(11);
+                String shortDescription = rs.getString(12);
+                String playerInfor = rs.getString(13);
+                int managerId = rs.getInt(14);
+                Player r = new Player(playerId, playerName, img, dob, birthPlace, nationalityId, number, number, roleId, imgBackground, number, shortDescription, playerInfor);
+                listPlayer.add(r);
+            }
+        } catch (Exception e) {
+        }
+        return listPlayer;
+    }
+
+    public ArrayList<Player> getAllMidfielders() {
+        ArrayList<Player> listPlayer = new ArrayList<>();
+        String query = "select * from Player where roleId = 3";
+        try {
+            conn = new DBcontext().getConnection();
+            ps = conn.prepareStatement(query);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                int playerId = rs.getInt(1);
+                String playerName = rs.getString(2);
+                String img = rs.getString(3);
+                Date dob = rs.getDate(4);
+                String birthPlace = rs.getString(5);
+                int nationalityId = rs.getInt(6);
+                float height = rs.getFloat(7);
+                float weight = rs.getFloat(8);
+                int roleId = rs.getInt(9);
+                String imgBackground = rs.getString(10);
+                int number = rs.getInt(11);
+                String shortDescription = rs.getString(12);
+                String playerInfor = rs.getString(13);
+                int managerId = rs.getInt(14);
+                Player r = new Player(playerId, playerName, img, dob, birthPlace, nationalityId, number, number, roleId, imgBackground, number, shortDescription, playerInfor);
+                listPlayer.add(r);
+            }
+        } catch (Exception e) {
+        }
+        return listPlayer;
+    }
+
+    public ArrayList<Player> getAllForwards() {
+        ArrayList<Player> listPlayer = new ArrayList<>();
+        String query = "select * from Player where roleId = 4";
+        try {
+            conn = new DBcontext().getConnection();
+            ps = conn.prepareStatement(query);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                int playerId = rs.getInt(1);
+                String playerName = rs.getString(2);
+                String img = rs.getString(3);
+                Date dob = rs.getDate(4);
+                String birthPlace = rs.getString(5);
+                int nationalityId = rs.getInt(6);
+                float height = rs.getFloat(7);
+                float weight = rs.getFloat(8);
+                int roleId = rs.getInt(9);
+                String imgBackground = rs.getString(10);
+                int number = rs.getInt(11);
+                String shortDescription = rs.getString(12);
+                String playerInfor = rs.getString(13);
+                int managerId = rs.getInt(14);
+                Player r = new Player(playerId, playerName, img, dob, birthPlace, nationalityId, number, number, roleId, imgBackground, number, shortDescription, playerInfor);
+                listPlayer.add(r);
+            }
+        } catch (Exception e) {
+        }
+        return listPlayer;
+    }
 }
