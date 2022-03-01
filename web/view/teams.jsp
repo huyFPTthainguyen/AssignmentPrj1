@@ -5,157 +5,158 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <head>
+        <meta charset="UTF-8">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>
-        .teams {
-            width: 100%;
-        }
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+            .teams {
+                width: 100%;
+            }
 
-        .top-teams {
-            width: 100%;
-            margin: 40px 0;
-        }
+            .top-teams {
+                width: 100%;
+                margin: 40px 0;
+            }
 
-        .top-teams h1 {
-            font-size: 40px;
-            color: #c70101;
-            font-family: fantasy;
-            text-align: center;
-            text-transform: uppercase;
-            margin: 5px 10px;
-        }
+            .top-teams h1 {
+                font-size: 40px;
+                color: #c70101;
+                font-family: fantasy;
+                text-align: center;
+                text-transform: uppercase;
+                margin: 5px 10px;
+            }
 
-        .top-teams .player-management {
-            list-style: none;
-            padding-left: 0;
-            text-align: center;
-        }
+            .top-teams .player-management {
+                list-style: none;
+                padding-left: 0;
+                text-align: center;
+            }
 
-        .top-teams .player-management a {
-            text-decoration: none;
-        }
+            .top-teams .player-management a {
+                text-decoration: none;
+            }
 
-        .top-teams .player-management li {
-            display: inline-block;
-            background-color: #c70101;
-            text-align: center;
-            width: 150px;
-            height: 50px;
-            padding: 10px;
-            font-size: 20px;
-            border: 1px solid #1a1a1a;
-            color: #fff;
-            margin: 5px 10px;
-        }
+            .top-teams .player-management li {
+                display: inline-block;
+                background-color: #c70101;
+                text-align: center;
+                width: 150px;
+                height: 50px;
+                padding: 10px;
+                font-size: 20px;
+                border: 1px solid #1a1a1a;
+                color: #fff;
+                margin: 5px 10px;
+            }
 
-        .top-teams .player-management li:hover {
-            background-color: #fff;
-            border: 1px solid #1a1a1a;
-            color: #c70101;
-        }
+            .top-teams .player-management li:hover {
+                background-color: #fff;
+                border: 1px solid #1a1a1a;
+                color: #c70101;
+            }
 
-        .top-teams .player-management li:focus {
-            background-color: #fff;
-            border: 1px solid #1a1a1a;
-            color: #c70101;
-        }
+            .top-teams .player-management li:focus {
+                background-color: #fff;
+                border: 1px solid #1a1a1a;
+                color: #c70101;
+            }
 
-        .bottom-teams {
-            width: 100%;
-        }
+            .bottom-teams {
+                width: 100%;
+            }
 
-        .bottom-teams h2 {
-            color: #1a1a1a;
-            font-family: fantasy;
-            margin: 40px 10px;
-        }
+            .bottom-teams h2 {
+                color: #1a1a1a;
+                font-family: fantasy;
+                margin: 40px 10px;
+            }
 
-        .bottom-teams .frame-player {
-            width: 100%;
-        }
+            .bottom-teams .frame-player {
+                width: 100%;
+            }
 
-        .bottom-teams .frame-player a {
-            text-decoration: none;
-        }
+            .bottom-teams .frame-player a {
+                text-decoration: none;
+            }
 
-        .bottom-teams .frame-player h4 {
-            font-size: 20px;
-            color: #1a1a1a;
-            position: absolute;
-            width: 30px;
-            height: 30px;
-            background-color: #c70101;
-            text-align: center;
-        }
+            .bottom-teams .frame-player h4 {
+                font-size: 20px;
+                color: #1a1a1a;
+                position: absolute;
+                width: 30px;
+                height: 30px;
+                background-color: #c70101;
+                text-align: center;
+            }
 
-        .bottom-teams .frame-player h3 {
-            background-color: #c70101;
-            font-size: 40px;
-            width: 70px;
-            height: 50px;
-            text-align: center;
-            color: white;
-            position: absolute;
-            bottom: 20%;
-        }
+            .bottom-teams .frame-player h3 {
+                background-color: #c70101;
+                font-size: 40px;
+                width: 70px;
+                height: 50px;
+                text-align: center;
+                color: white;
+                position: absolute;
+                bottom: 20%;
+            }
 
-        .bottom-teams .frame-player .name-nationality {
-            width: 100%;
-            margin: 3px 0;
-        }
+            .bottom-teams .frame-player .name-nationality {
+                width: 100%;
+                margin: 3px 0;
+            }
 
-        .bottom-teams .frame-player .name-nationality p {
-            font-size: 20px;
-            color: #c70101;
-            font-weight: bold;
-            margin: 10px;
-            text-align: center;
-        }
+            .bottom-teams .frame-player .name-nationality p {
+                font-size: 20px;
+                color: #c70101;
+                font-weight: bold;
+                margin: 10px;
+                text-align: center;
+            }
 
-        .bottom-teams .frame-player .name-nationality img {
-            margin: 10px auto;
-            display: block;
-        }
-    </style>
-    <title>Document</title>
-</head>
+            .bottom-teams .frame-player .name-nationality img {
+                margin: 10px auto;
+                display: block;
+            }
+        </style>
+        <title>Document</title>
+    </head>
 
-<body>
-    <div class="teams">
-                <div class="container">
-                    <div class="top-teams">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <h1>Chelsea Football Team</h1>
-                            </div>
-                            <div class="col-md-6">
-                                <ul class="player-management">
-                                    <a href="">
-                                        <li>Players</li>
-                                    </a>
-                                    <a href="">
-                                        <li>Management</li>
-                                    </a>
-                                </ul>
-                            </div>
+    <body>
+        <div class="teams">
+            <div class="container">
+                <div class="top-teams">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h1>Chelsea Football Team</h1>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="player-management">
+                                <a href="">
+                                    <li>Players</li>
+                                </a>
+                                <a href="">
+                                    <li>Management</li>
+                                </a>
+                            </ul>
                         </div>
                     </div>
-                    <div class="bottom-teams">
-                        <div class="player-infor">
-                            <h2>Goalkeepers</h2>
-                            <div class="frame-player">
-                                <div class="row">
+                </div>
+                <div class="bottom-teams">
+                    <div class="player-infor">
+                        <h2>Goalkeepers</h2>
+                        <div class="frame-player">
+                            <div class="row">
                                 <c:forEach items="${listGoalkeeper}" var="g">
                                     <div class="col-md-3">
                                         <a href="">
@@ -269,6 +270,6 @@
                 </div>
             </div>
         </div>
-        
+
     </body>
 </html>

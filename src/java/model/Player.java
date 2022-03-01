@@ -14,7 +14,7 @@ import java.sql.Date;
 public class Player {
 
     private int playerId;
-    private String playrName;
+    private String playerName;
     private String img;
     private Date dob;
     private String birthPlace;
@@ -30,9 +30,9 @@ public class Player {
     public Player() {
     }
 
-    public Player(int playerId, String playrName, String img, Date dob, String birthPlace, int nationalityId, int height, int weight, int roleId, String imgBackground, int number, String shortDescription, String playerInfor) {
+    public Player(int playerId, String playerName, String img, Date dob, String birthPlace, int nationalityId, int height, int weight, int roleId, String imgBackground, int number, String shortDescription, String playerInfor) {
         this.playerId = playerId;
-        this.playrName = playrName;
+        this.playerName = playerName;
         this.img = img;
         this.dob = dob;
         this.birthPlace = birthPlace;
@@ -45,7 +45,6 @@ public class Player {
         this.shortDescription = shortDescription;
         this.playerInfor = playerInfor;
     }
-    
 
     public int getPlayerId() {
         return playerId;
@@ -55,12 +54,12 @@ public class Player {
         this.playerId = playerId;
     }
 
-    public String getPlayrName() {
-        return playrName;
+    public String getPlayerName() {
+        return playerName;
     }
 
-    public void setPlayrName(String playrName) {
-        this.playrName = playrName;
+    public void setPlayerName(String playerName) {
+        this.playerName = playerName;
     }
 
     public String getImg() {
@@ -151,9 +150,5 @@ public class Player {
         this.playerInfor = playerInfor;
     }
 
-    @Override
-    public String toString() {
-        return "Player{" + "playerId=" + playerId + ", playrName=" + playrName + ", img=" + img + ", dob=" + dob + ", birthPlace=" + birthPlace + ", nationalityId=" + nationalityId + ", height=" + height + ", weight=" + weight + ", roleId=" + roleId + ", imgBackground=" + imgBackground + ", number=" + number + ", shortDescription=" + shortDescription + ", playerInfor=" + playerInfor + '}';
-    }
     
 }
